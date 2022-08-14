@@ -1,0 +1,52 @@
+.main_container {
+  position: relative;
+}
+
+.message_container {
+  position: fixed;
+  width: min-content;
+  height: 300px;
+  margin-right: 16.66666667% !important;
+  bottom: 0px !important;
+  z-index: 900;
+}
+
+.message_placement {
+  position: fixed;
+  width: auto;
+  height: fit-content;
+  bottom: 0;
+  right: 0;
+  margin-right: 16.66666667% !important;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  z-index: 900;
+}
+
+.message_box_dropdown {
+  cursor: pointer;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  width: 250px !important;
+  height: 31px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(0, 52, 120);
+  padding: 0px 0px 0px 7px;
+  font-size: 16px;
+  line-height: 100%;
+  color: white;
+  text-transform: capitalize;
+}
+
+.active_message_box {
+  color: black;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.active_message_box:hover {
+  background-color: #e3e3e3;
+}

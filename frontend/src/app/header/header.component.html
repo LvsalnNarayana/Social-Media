@@ -1,0 +1,77 @@
+<header>
+  <div class="center_grid">
+    <div class="header_content_container">
+      <div class="logo_container">
+        <a class="logo" routerLink="/">Flybook</a>
+      </div>
+      <div class="search_bar">
+        <form [formGroup]="search_form">
+          <div class="search_input_container">
+            <input formControlName="search_text" placeholder="Search Anything" type="search" name="universal_search"
+              id="universal_search" class="search_control">
+          </div>
+        </form>
+        <div #search_results class="search_result_container" *ngIf="search_results_toggle">
+          <p *ngFor="let data of search_data" class="search_result" routerLink='/{{data.username}}'>
+            <span>{{data.username}}</span>
+          </p>
+        </div>
+      </div>
+      <div class="account_controls">
+        <div class="account_control_container" routerLink='/{{state.username | async}}'
+          routerLinkActive="router-link-active">
+          <i class="bi bi-person-fill"></i>
+          <p class="username">{{state.username | async}}</p>
+        </div>
+        <div class="account_control_container" [matMenuTriggerFor]="message_menu">
+          <i class="bi bi-chat-left-text-fill"></i>
+        </div>
+        <mat-menu #message_menu="matMenu" class="custom_mat_menu">
+          <app-header-dropdown>
+            <div messages>
+              <div class="message_notification" *ngFor="let message of user_messages" (click) = "open_conversation(message?.user)">
+                <div class="message_notification_user_img"></div>
+                <div class="message_notification_user_meta">
+                  <p style="text-transform: capitalize;"><b>{{message?.user?.username}}</b></p>
+                  <p>{{message?.messages[0]?.message}}</p>
+                </div>
+              </div>
+            </div>
+          </app-header-dropdown>
+        </mat-menu>
+        <div class="account_control_container" [matMenuTriggerFor]="notification_menu">
+          <i class="bi bi-bell-fill"></i>
+          <span class="notification_count" *ngIf="request_length > 0">{{request_length}}</span>
+        </div>
+        <mat-menu #notification_menu="matMenu" class="custom_mat_menu">
+          <app-header-dropdown>
+            <div #notification_container notifications>
+              <div *ngIf="pending_requests?.length >0;else empty_notifications">
+                <div class="friend_req_container my-2" *ngFor="let item of pending_requests">
+                  <div class="friend_req_meta_container">
+                    <div class="friend_req_img"></div>
+                    <div class="friend_req_desc ms-3">
+                      <p class="mb-1"><strong>{{item.sender_id.username}}</strong></p>
+                      <p class="text-muted">mutual friends</p>
+                      <div class="friend_req_action_container mt-1 d-flex justify-content-around">
+                        <button class="custom_btn btn_primary me-3"
+                          (click)="accept_friend(item.sender_id.id)">Accept</button>
+                        <button class="custom_btn" (click)="reject_friend(item.sender_id.id)">Reject</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ng-template #empty_notifications>
+                <p class="text-muted text-center">No New Notifications</p>
+              </ng-template>
+            </div>
+          </app-header-dropdown>
+        </mat-menu>
+        <div class="account_control_container">
+          <i class="bi bi-chevron-double-down"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

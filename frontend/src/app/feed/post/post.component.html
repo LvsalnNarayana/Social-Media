@@ -1,0 +1,75 @@
+<div class="post_container my-4">
+  <div class="post_user_meta_container">
+    <div class="d-flex justify-content-start align-items-start">
+      <div class="post_user_img_container"></div>
+      <div class="post_user_details_container">
+        <p class="post_username">{{post.user.username}}</p>
+        <span class="post_time">
+          19hrs&nbsp;&nbsp;.&nbsp;
+        </span>
+        <span class="post_type">
+          <span [ngSwitch]="post.post_type">
+            <span *ngSwitchCase="'only_me'">
+              <i class="bi bi-lock-fill"></i>
+            </span>
+            <span *ngSwitchCase="'friends'">
+              <i class="bi bi-people-fill"></i>
+            </span>
+            <span *ngSwitchCase="'public'">
+              <i class="bi bi-globe"></i>
+            </span>
+            <span *ngSwitchDefault>
+              <i class="bi bi-globe"></i>
+            </span>
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="me-2" style="cursor: pointer;">
+      <i class="bi bi-three-dots-vertical"></i>
+    </div>
+  </div>
+  <div class="post_desc_container">
+    <p class="post_desc">
+      {{post.post_desc}}
+    </p>
+  </div>
+  <div class="post_img_container"></div>
+  <div class="post_meta_container">
+    <div class="post_like_container">
+      <p>
+        <i class="bi bi-hand-thumbs-up-fill post_likes"></i> Shawn Mendes and 55 others likes this.
+      </p>
+    </div>
+    <div class="post_stats_container">
+      <span class="post_comments"></span>
+      <span class="post_shares"></span>
+    </div>
+  </div>
+  <hr>
+  <div class="post_options_container">
+    <form>
+      <div class="post_options_top_container">
+        <div class="post_option">
+          <label for="post_like" class="post_like_label">
+            <input class="like_checkbox" type="checkbox" name="post_like">
+            <i class="bi bi-hand-thumbs-up-fill post_liker"></i>
+            &nbsp;Like
+          </label>
+        </div>
+        <div class="post_option">
+          <label for="post_share" class="post_share_label">
+            <input type="checkbox" name="post_share" class="share_checkbox">
+            <i class="bi bi-share-fill post_sharer"></i>
+            &nbsp;Share
+          </label>
+        </div>
+      </div>
+      <hr>
+      <div class="post_comment_option">
+        <div class="comment_user_container"></div>
+        <input type="text" name="post_comment" placeholder="Write a Comment" class="post_comment">
+      </div>
+    </form>
+  </div>
+</div>

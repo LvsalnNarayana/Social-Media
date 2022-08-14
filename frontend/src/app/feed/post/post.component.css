@@ -1,0 +1,156 @@
+.post_container {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.post_user_meta_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post_user_img_container {
+  width: 35px;
+  height: 35px;
+  background-color: black;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.post_username {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 500;
+  color: rgb(0, 9, 36);
+  cursor: pointer;
+}
+
+.post_user_details_container {
+  margin-left: 20px;
+}
+
+.post_time {
+  font-size: 14px;
+  color: #8d8d8d;
+}
+
+.post_type {
+  font-size: 14px;
+  color: #8d8d8d;
+}
+
+.post_desc_container {
+  margin: 15px 10px;
+}
+
+.post_desc {
+  font-size: 14px;
+}
+
+.post_img_container {
+  max-height: 300px;
+  height: 300px;
+  background-color: #cacaca;
+}
+
+.post_meta_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.post_likes {
+  font-size: 20px;
+  line-height: 20px;
+  color: dodgerblue;
+}
+
+.post_like_container p {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.post_options_top_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post_option {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post_like_label {
+  position: relative;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.like_checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.like_checkbox:checked~.post_liker {
+  color: dodgerblue;
+}
+
+.post_liker {
+  font-size: 16px !important;
+}
+
+.post_share_label {
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.share_checkbox {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.post_share_label:hover .post_sharer {
+  color: dodgerblue;
+}
+
+.post_sharer {
+  font-size: 16px !important;
+}
+
+.post_comment_option {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.comment_user_container {
+  width: 35px;
+  height: 35px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.post_comment {
+  margin-left: 10px;
+  background-color: #e3e3e3;
+  height: 40px;
+  border-radius: 15px;
+  border: 0px !important;
+  outline: none;
+  width: 90%;
+  padding: 5px 10px;
+}

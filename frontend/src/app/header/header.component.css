@@ -1,0 +1,183 @@
+header {
+  background-color: rgb(0, 52, 120);
+  padding: 7px 0px;
+  position: relative;
+  z-index: 1000;
+}
+
+.header_content_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo_container {
+  width: 10%;
+}
+
+.logo {
+  /* font-family: 'Schoolbell', cursive; */
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0.1rem;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.search_bar {
+  width: 40%;
+  position: relative;
+}
+
+.search_result_container {
+  position: absolute;
+  width: 90%;
+  max-height: 300px;
+  overflow-y: auto;
+  top: 110%;
+  left: 0px;
+  z-index: 1000;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+}
+
+.search_result {
+  cursor: pointer;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.search_result:hover {
+  background-color: #e3e3e3;
+}
+
+.search_control {
+  background-color: rgba(255, 255, 255, 0.3);
+  height: 35px;
+  border-radius: 10px;
+  width: 90%;
+  border: 0px !important;
+  color: white;
+  outline: none;
+  padding: 0px 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.search_control::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.7px;
+  font-weight: 500;
+}
+
+.search_control:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+  outline: none;
+  box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.7);
+}
+
+.search_control:active {
+  outline: none;
+}
+
+.account_controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 25%;
+}
+
+.account_control_container {
+  color: white;
+  font-size: 22px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 40px;
+  position: relative;
+}
+
+.account_control_container i {
+  font-size: 20px !important;
+}
+
+.notification_count {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background-color: yellow;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+}
+
+.username {
+  font-size: 16px;
+  line-height: 100%;
+  margin-left: 3px;
+  letter-spacing: 0.5px;
+  /* font-family: 'Schoolbell', cursive; */
+  /* text-transform: uppercase; */
+  text-transform: capitalize;
+}
+
+
+
+
+.friend_req_container {
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.friend_req_meta_container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.friend_req_img {
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+
+.message_notification {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  padding: 7px 10px;
+  width: 100%;
+  background-color: #e3e3e3;
+  margin-bottom: 3px;
+}
+
+.message_notification:hover {
+  background-color: rgba(0, 52, 120, 0.3);
+}
+
+.message_notification_user_img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: black;
+  margin-right: 20px;
+}
+
+.message_notification_user_meta {
+  cursor: default;
+}

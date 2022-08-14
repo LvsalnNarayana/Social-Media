@@ -1,0 +1,6 @@
+<div class="active_friends_container">
+  <div class="active_friend" *ngFor="let friend of active_friends" (click) = "open_conversation(friend)">
+    <div class="active_friend_img"></div>
+    <p class="active_friend_meta">{{friend.username}}</p>
+  </div>
+</div>

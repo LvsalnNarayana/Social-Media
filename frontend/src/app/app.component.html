@@ -1,0 +1,14 @@
+<main-header *ngIf="State.auth_state | async"></main-header>
+<div class="main_container">
+  <div class="message_placement" #message_placement>
+    <app-message-box *ngFor="let active_conversation of active_conversations" [userdata]="active_conversation">
+    </app-message-box>
+    <!-- <div class="message_box_dropdown" [matMenuTriggerFor]="message_box_extension">
+      New Messages
+    </div>
+    <mat-menu #message_box_extension="matMenu" class="custom_message_menu">
+      <p class="active_message_box">Username</p>
+    </mat-menu> -->
+  </div>
+  <router-outlet></router-outlet>
+</div>

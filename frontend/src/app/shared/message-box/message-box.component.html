@@ -1,0 +1,27 @@
+<div class="message_box_container">
+  <div class="message_user_meta">
+    <p class="message_username" [ngClass]="online === true ? 'online' : ''">{{userdata.username}}</p>
+    <div class="d-flex justify-content-end align-items-center">
+      <button class="msg_box_btn" (click)="minimize_conversation()">
+        <i class="bi bi-dash-lg"></i>
+      </button>
+      <button class="msg_box_btn" (click)="close_conversation(userdata)">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+  </div>
+  <div class="message_box" *ngIf="conversation_minimize === false">
+    <div [ngClass]="message.sender_id === userdata.id? 'received_message' : 'user_message'"
+      *ngFor="let message of messages">
+      {{message.message}}
+    </div>
+  </div>
+  <form *ngIf="conversation_minimize === false" [formGroup]="message_input_form" (ngSubmit)="send_message(userdata.id)">
+    <div class="message_box_input">
+      <textarea name="message" id="message" class="message_input" formControlName="message_input"></textarea>
+      <button type="submit" class="send_btn btn_primary">
+        <i class="bi bi-send-fill"></i>
+      </button>
+    </div>
+  </form>
+</div>

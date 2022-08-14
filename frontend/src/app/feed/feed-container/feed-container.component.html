@@ -1,0 +1,12 @@
+<div class="feed_container">
+  <div class="create_post_form_container w-100">
+    <div class="post_desc_input_container">
+      <div class="user_profile_image"></div>
+      <div class="post_desc">
+        <input class="post_desc_input" (focus)="create_post_focus()" type="text" name="post_desc" id="post_desc"
+          placeholder="What's on your mind, {{user?.username}}?">
+      </div>
+    </div>
+  </div>
+  <app-post *ngFor="let post of posts" [post]="post"></app-post>
+</div>

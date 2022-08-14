@@ -1,0 +1,49 @@
+<div class="modal_header">
+  <p class="header_title">Create Post</p>
+  <p class="modal_close" (click)="close_dialog()"><i class="bi bi-x-lg"></i></p>
+</div>
+<hr>
+<div class="modal_body_container">
+  <div class="post_user_container">
+    <div class="post_user_img"></div>
+    <div class="post_user_meta_container">
+      <p class="post_username" style="text-transform: capitalize;">{{user?.username}}</p>
+      <div [matMenuTriggerFor]="post_type" class="custom_badge">
+        <div [ngSwitch]="post_type_set">
+          <span *ngSwitchCase="'only_me'">
+            <i class="bi bi-lock-fill"></i>&nbsp;Only Me
+          </span>
+          <span *ngSwitchCase="'friends'">
+            <i class="bi bi-people-fill"></i>&nbsp;Friends
+          </span>
+          <span *ngSwitchCase="'public'">
+            <i class="bi bi-globe"></i>&nbsp;Public
+          </span>
+          <span *ngSwitchDefault>
+            <i class="bi bi-globe"></i>&nbsp;Public
+          </span>
+          &nbsp;<i class="bi bi-caret-down-fill"></i>
+        </div>
+      </div>
+      <mat-menu #post_type="matMenu" class="post_type_menu">
+        <p *ngIf="post_type_set !== 'friends'" (click)="change_post_type('friends')" class="post_type_item">
+          <i class="bi bi-people-fill"></i>&nbsp;Friends
+        </p>
+        <p *ngIf="post_type_set !== 'public'" (click)="change_post_type('public')" class="post_type_item">
+          <i class="bi bi-globe"></i>&nbsp;Public
+        </p>
+        <p *ngIf="post_type_set !== 'only_me'" (click)="change_post_type('only_me')" class="post_type_item">
+          <i class="bi bi-lock-fill"></i>&nbsp;Only Me
+        </p>
+      </mat-menu>
+    </div>
+  </div>
+  <form [formGroup]="post_form">
+    <textarea formControlName="post_desc" class="post_desc_input"
+      placeholder="What's on your mind, {{user?.username}}?"></textarea>
+  </form>
+</div>
+<div class="modal_footer">
+  <button [disabled]="this.post_form.get('post_desc')?.value === ''" class="custom_btn btn_primary w-100 py-2"
+    (click)="create_post()">Post</button>
+</div>

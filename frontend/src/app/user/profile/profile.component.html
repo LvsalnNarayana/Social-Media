@@ -1,0 +1,85 @@
+<div class="user_display">
+  <div class="content_grid">
+    <div class="user_container" *ngIf="user_data != null">
+      <div class="user_cover_image_container"></div>
+      <div class="user_profile_container">
+        <div class="user_profile_image_container"></div>
+        <div class="user_profile_details_container">
+          <p class="profile_name">{{user_data.username}}</p>
+          <div>
+            <button class="btn_pad_2 custom_btn btn_primary me-2"
+              *ngIf="!user_data.connected_user && user_data.status === null"
+              (click)="add_friend(user_data.id , user_data.username)">
+              +&nbsp;&nbsp;Add Friend
+            </button>
+            <div *ngIf="user_data.status === 'friend'" class="d-flex justify-content-end align-items-center">
+              <button disabled="disabled" class="btn_pad_2 custom_btn btn_primary me-2">
+                <i class="bi bi-check"></i>&nbsp;&nbsp;Friends
+              </button>
+              <div class="btn_pad_2 custom_btn btn_primary" [matMenuTriggerFor]="friends_dropdown">
+                <strong><i class="bi bi-chevron-down"></i></strong>
+              </div>
+              <mat-menu #friends_dropdown="matMenu" class="profile_drodown_menu" yPosition="below" xPosition="before">
+                <p class="profile_option" (click)="open_conversation(user_data)">Send Message</p>
+              </mat-menu>
+            </div>
+
+            <button disabled="disabled" class="btn_pad_2 custom_btn btn_primary me-2"
+              *ngIf="user_data.status === 'requested'">
+              <i class="bi bi-check"></i>&nbsp;&nbsp;Request Sent
+            </button>
+            <button class="btn_pad_2 custom_btn btn_primary me-2" *ngIf="user_data.connected_user">
+              <i class="bi bi-pencil-fill"></i>&nbsp;&nbsp;Edit Profile
+            </button>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="user_profile_options_container">
+        <div class="user_profile_option" (click)="tab = 'posts'"
+          [ngClass]="tab === 'posts'?'user_profile_option_active':''">
+          <p class="user_profile_option_text">
+            Posts
+          </p>
+        </div>
+        <div class="user_profile_option" (click)="tab = 'about'"
+          [ngClass]="tab === 'about'?'user_profile_option_active':''">
+          <p class="user_profile_option_text">
+            About
+          </p>
+        </div>
+        <div class="user_profile_option" (click)="tab = 'friends'"
+          [ngClass]="tab === 'friends'?'user_profile_option_active':''">
+          <p class="user_profile_option_text">
+            Friends
+          </p>
+        </div>
+        <div class="user_profile_option" (click)="tab = 'photos'"
+          [ngClass]="tab === 'photos'?'user_profile_option_active':''">
+          <p class="user_profile_option_text">
+            Photos
+          </p>
+        </div>
+        <div class="user_profile_option" (click)="tab = 'videos'"
+          [ngClass]="tab === 'videos'?'user_profile_option_active':''">
+          <p class="user_profile_option_text">
+            Videos
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row g-0">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div style="width:500px;margin:20px auto;" *ngIf="tab === 'posts'">
+        <app-post *ngFor="let post of user_data?.posts" [post]="post"></app-post>
+      </div>
+      <div *ngIf="tab === 'about'"></div>
+      <div *ngIf="tab === 'friends'"></div>
+      <div *ngIf="tab === 'photos'"></div>
+      <div *ngIf="tab === 'videos'"></div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

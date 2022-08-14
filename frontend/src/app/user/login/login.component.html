@@ -1,0 +1,19 @@
+<div class="login_form_container">
+  <div class="login_form">
+    <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
+    <div *ngIf="!(state.auth_state | async) ; else logged_in">
+      <h3 class="login_helper_text">Sign in here</h3>
+      <form [formGroup]="login_form" (ngSubmit)="login_submit()">
+        <div class="inputBox">
+          <input formControlName="username" id="username" type="text" name="username" placeholder="Username">
+          <input formControlName="password" id="password" type="password" name="password" placeholder="Password">
+        </div>
+        <input type="submit" name="submit" value="Login">
+      </form>
+      <a href="#">Forget Password<br></a>
+    </div>
+  </div>
+  <ng-template #logged_in>
+    <h3 class="text-center">logged in !!!</h3>
+  </ng-template>
+</div>
